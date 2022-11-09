@@ -29,7 +29,7 @@ interface HeaderButtonProps {
   variant: "purple" | "yellow";
 }
 
-export const HeaderButton = styled.div<HeaderButtonProps>`
+export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,23 +57,22 @@ export const HeaderButton = styled.div<HeaderButtonProps>`
     font-weight: 700;
   }
 
-  font-size: ${({ theme }) => theme.textSizes["text-regular-s"]}
+  font-size: ${({ theme }) => theme.textSizes["text-regular-s"]};
 
   ${({ variant }) => css`
     background: ${({ theme }) => theme.colors[`brand-${variant}-light`]};
     color: ${({ theme }) => theme.colors[`brand-${variant}-dark`]};
 
     span {
-      background: ${({ theme }) => theme.colors[`brand-${variant}-dark`]}
+      background: ${({ theme }) => theme.colors[`brand-${variant}-dark`]};
     }
   `}
 
-  ${({ variant }) => 
+  ${({ variant }) =>
     variant === "purple" &&
     css`
       svg {
         color: ${({ theme }) => theme.colors[`brand-${variant}`]};
       }
-    `
-  }
+    `}
 `;

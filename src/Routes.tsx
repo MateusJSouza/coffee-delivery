@@ -5,8 +5,9 @@ import { HomePage } from './pages/Home';
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />} />
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<DefaultLayout />}>
+        <Route path="/" element={<HomePage />} />
+      </Route>
     </Routes>
   )
 }
