@@ -3,6 +3,7 @@ import coffeeImg from '../../../../../public/coffes/americano.png'
 import { RegularText, TitleText } from "../../../../components/Typograph";
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { ShoppingCart } from "phosphor-react";
+import { formatMoney } from "../../../../utils/formatMoney";
 
 export interface Coffee {
   id: number;
@@ -18,10 +19,11 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const formattedPrice = formatMoney(coffee.price);
 
   return (
     <CoffeeCardContainer>
-      <img src={coffeeImg} alt="" />
+      <img src={`/coffees/${coffee.photo}`} alt="" />
 
       <Tags>
         {coffee.tags.map((tag) => (
@@ -39,7 +41,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
       <CardFooter>
         <div>
           <RegularText size="s">R$</RegularText>
-          <TitleText size="m" color="text" as="strong">9,90</TitleText>
+          <TitleText size="m" color="text" as="strong">{formattedPrice}</TitleText>
         </div>
 
         <AddCartWrapper>
