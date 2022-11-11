@@ -6,5 +6,5 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ text, ...rest }: ButtonProps) {
-  return <ButtonContainer {...rest}></ButtonContainer>
+  return <ButtonContainer {...rest}>{text}</ButtonContainer>
 }
