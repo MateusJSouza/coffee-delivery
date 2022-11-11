@@ -12,7 +12,7 @@ export function CoffeeCartCard() {
         <div>
           <RegularText color="subtitle">Expresso Tradicional</RegularText>
           <ActionsContainer>
-            <QuantityInput />
+            <QuantityInput size="small" />
             <RemoveButton>
               <Trash size={16} />
               Remover
