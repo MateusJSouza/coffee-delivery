@@ -1,10 +1,12 @@
-import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
-import coffeeImg from '../../../../../public/coffees/americano.png'
-import { RegularText } from "../../../../components/Typograph";
-import { QuantityInput } from "../../../../components/QuantityInput";
 import { Trash } from "phosphor-react";
 
-export function CoffeeCartCard( ) {
+import { RegularText } from "../../../../components/Typograph";
+import { QuantityInput } from "../../../../components/QuantityInput";
+
+import coffeeImg from '../../../../../public/coffees/americano.png'
+import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
+
+export function CoffeeCartCard() {
   return (
     <CoffeeCartCardContainer>
       <div>
