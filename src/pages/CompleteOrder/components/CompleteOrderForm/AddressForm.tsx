@@ -46,8 +46,6 @@ export function AddressForm() {
     }
   }
 
-  console.log(address.uf);
-
   return (
     <AddressFormContainer>
       <Input
