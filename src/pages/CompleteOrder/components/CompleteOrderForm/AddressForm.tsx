@@ -1,17 +1,9 @@
-import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { Input } from "../../../../components/Input";
 import { zipCodeAPI } from "../../../../services/zipCode";
 
 import { AddressFormContainer } from "./styles";
-
-type Address = {
-  street: string;
-  neighborhood: string;
-  city: string;
-  uf: string | null;
-}
 
 interface ErrorsType {
   errors: {
@@ -22,42 +14,33 @@ interface ErrorsType {
 }
 
 export function AddressForm() {
-  const { register, formState } = useFormContext();
+  const { register, formState, setValue } = useFormContext();
 
   const { errors } = formState as unknown as ErrorsType;
 
-  // const [zipCode, setZipCode] = useState("");
-  // const [address, setAddress] = useState<Address>({
-  //   uf: null,
-  //   city: '',
-  //   street: '',
-  //   neighborhood: '',
-  // });
+  async function handleZipCodeChange(zipCode: string) {
+    try {
+      if (zipCode.length === 8) {
+        const response = await zipCodeAPI.get(`${zipCode}/json`);
+        const { logradouro: street, bairro: district, localidade: city, uf } = response.data;
+        setValue("street", street);
+        setValue("district", district);
+        setValue("city", city);
+        setValue("uf", uf);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  // const handleZipCodeBlur = async () => {
-  //   if (zipCode.length === 8) {
-  //     try {
-  //       const response = await zipCodeAPI.get(`/${zipCode}/json`);
+  function handleCepBlur(event: React.FocusEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    const cepRegex = /^\d{5}-?\d{3}$/;
 
-  //       console.log({response});
-  
-  //       if (response.status === 200) {
-  //         const { logradouro, localidade, bairro, uf } = response.data;
-          
-  //         setAddress({
-  //           street: logradouro,
-  //           neighborhood: bairro,
-  //           city: localidade,
-  //           uf
-  //         });
-  //       } else {
-  //         console.error('Não foi possível consultar o CEP.')
-  //       }
-  //     } catch (err) {
-  //       console.error('Ocorreu um erro ao consultar o CEP.', err);
-  //     }
-  //   }
-  // }
+    if (cepRegex.test(value)) {
+      handleZipCodeChange(value.replace("-", ""));
+    }
+  }
 
   return (
     <AddressFormContainer>
@@ -65,10 +48,9 @@ export function AddressForm() {
         placeholder="CEP"
         type="number"
         className="cep"
-        // onChange={(event) => setZipCode(event.target.value)}
-        // onBlur={handleZipCodeBlur}
         {...register('cep')}
         error={errors.cep?.message}
+        onBlur={handleCepBlur}
       />
       <Input
         placeholder="Rua"
