@@ -47,9 +47,10 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     width: 1.25rem;
     height: 1.25rem;
     border-radius: 50%;
-    top: calc(-1.25rem / 2);
+    top: calc(-1.25rem / 2); // altura e largura divido por 2
     right: calc(-1.25rem / 2);
     color: ${({ theme }) => theme.colors["base-white"]};
+    
     display: flex;
     align-items: center;
     justify-content: center;
