@@ -22,7 +22,7 @@ interface CoffeeProps {
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
   const [quantity, setQuantity] = useState(1);
-  const { addCoffeToCart } = useCart();
+  const { addCoffeeToCart } = useCart();
 
   function handleIncrease() {
     setQuantity(state => state + 1);
@@ -38,7 +38,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
       quantity: 1,
     }
 
-    addCoffeToCart(coffeeToAdd);
+    addCoffeeToCart(coffeeToAdd);
   }
 
   const formattedPrice = formatMoney(coffee.price);
