@@ -27,6 +27,7 @@ export function CartContextProvider({ children }: CartContextTypeProviderProps) 
   
   const cartQuantity = cartItems.length;
 
+  // Adiciona um ou mais itens ao carrinho
   function addCoffeeToCart(coffee: CartItem) {
     const coffeeAlreadyExistsInCart = cartItems.findIndex(cartItem => cartItem.id === coffee.id);
 
@@ -41,6 +42,7 @@ export function CartContextProvider({ children }: CartContextTypeProviderProps) 
     setCartItems(newCart);
   }
 
+  // altera a quantidade de um item no carrinho de compras, aumentando ou diminuindo a quantidade em 1, dependendo do tipo fornecido.
   function changeCartItemQuantity(
     cartItemId: number,
     type: "increase" | "decrease"
@@ -54,6 +56,19 @@ export function CartContextProvider({ children }: CartContextTypeProviderProps) 
           type === 'increase' ? item.quantity + 1 : item.quantity - 1;
       }
     });
+
+    setCartItems(newCart);
+  }
+
+  // remove o item do carrinho com o ID correspondente ao cartItemId.
+  function removeCartItem(cartItemId: number) {
+    const newCart = produce(cartItems, (draft) => {
+      const coffeeExistsInCart = cartItems.findIndex(cartItem => cartItem.id === cartItemId);
+
+      if (coffeeExistsInCart >= 0) {
+        draft.splice(coffeeExistsInCart, 1);
+      }
+    })
 
     setCartItems(newCart);
   }
