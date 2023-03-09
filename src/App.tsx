@@ -3,7 +3,7 @@ import { defaultTheme } from './styles/themes/default';
 import { GlobalStyle } from './styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Routes';
-import { CartContextProvider } from './contexts/CartContent';
+import { CartContextProvider } from './contexts/CartContext';
 
 export function App() {
 
