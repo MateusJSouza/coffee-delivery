@@ -1,5 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
 import { produce } from 'immer';
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
 export interface CartItem extends Coffee {
@@ -37,7 +37,7 @@ export function CartContextProvider({ children }: CartContextTypeProviderProps) 
     }
     return [];
   });
-  
+
   const cartQuantity = cartItems.length;
 
   const cartItemsTotal = cartItems.reduce((total, cartItem) => {
