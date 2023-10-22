@@ -1,12 +1,12 @@
 import { Trash } from "phosphor-react";
 
-import { RegularText } from "../../../../components/Typograph";
 import { QuantityInput } from "../../../../components/QuantityInput";
+import { RegularText } from "../../../../components/Typograph";
 
-import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
-import { CartItem } from "../../../../contexts/CartContent";
-import { formatMoney } from "../../../../utils/formatMoney";
+import { CartItem } from "../../../../contexts/CartContext";
 import { useCart } from "../../../../hooks/useCart";
+import { formatMoney } from "../../../../utils/formatMoney";
+import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
 
 interface CoffeeCartCardProps {
   coffee: CartItem;
@@ -41,7 +41,7 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
               size="small"
               onIncrease={handleIncrease}
               onDecrease={handleDecrease}
-              quantity={coffee.quantity} 
+              quantity={coffee.quantity}
             />
             <RemoveButton onClick={handleRemove}>
               <Trash size={16} />
