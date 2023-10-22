@@ -1,13 +1,13 @@
-import { RegularText, TitleText } from "../../components/Typograph";
-import { OrderConfirmedContainer, OrderDetailsContainer } from "./style";
-import confirmedOrderIllustration from '../../assets/confirmed-order.svg';
-import { InfoWithIcon } from "../../components/InfoWithIcon";
-import { MapPin, Clock, CurrencyDollar } from 'phosphor-react';
-import { useTheme } from "styled-components";
+import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "styled-components";
+import confirmedOrderIllustration from "../../assets/confirmed-order.svg";
+import { InfoWithIcon } from "../../components/InfoWithIcon";
+import { RegularText, TitleText } from "../../components/Typograph";
 import { OrderData } from "../CompleteOrder";
 import { paymentMethods } from "../CompleteOrder/components/CompleteOrderForm/PaymentMethodOptions";
-import { useEffect } from "react";
+import { OrderConfirmedContainer, OrderDetailsContainer } from "./style";
 
 interface LocationType {
   state: OrderData;
@@ -22,24 +22,26 @@ export function OrderConfirmedPage() {
 
   useEffect(() => {
     if (!state) {
-      navigate('/');
+      navigate("/");
     }
   }, []);
 
-  if (!state) return <></>
-  
+  if (!state) return <></>;
+
   return (
     <OrderConfirmedContainer className="container">
       <div>
-        <TitleText size="l">Uhu! Pedido confirmado.</TitleText>
-        <RegularText size="l" color="subtitle">Agora é só aguardar que logo o café chegará até você</RegularText>
+        <TitleText size="l">Uhu! Pedido confirmado</TitleText>
+        <RegularText size="l" color="subtitle">
+          Agora é só aguardar que logo o café chegará até você
+        </RegularText>
       </div>
 
       <section>
         <OrderDetailsContainer>
           <InfoWithIcon
             icon={<MapPin weight="fill" />}
-            iconBg={colors["brand-yellow"]}
+            iconBg={colors["brand-purple"]}
             text={
               <RegularText>
                 Entrega em <strong>{state.street}</strong>, {state.number}
@@ -51,7 +53,7 @@ export function OrderConfirmedPage() {
 
           <InfoWithIcon
             icon={<Clock weight="fill" />}
-            iconBg={colors["brand-purple"]}
+            iconBg={colors["brand-yellow"]}
             text={
               <RegularText>
                 Previsão de entrega
@@ -63,7 +65,7 @@ export function OrderConfirmedPage() {
 
           <InfoWithIcon
             icon={<CurrencyDollar weight="fill" />}
-            iconBg={colors["brand-purple"]}
+            iconBg={colors["brand-yellow-dark"]}
             text={
               <RegularText>
                 Pagamento na entrega
@@ -73,9 +75,8 @@ export function OrderConfirmedPage() {
             }
           />
         </OrderDetailsContainer>
-
-        <img src={confirmedOrderIllustration} alt="" />
+        <img src={confirmedOrderIllustration} />
       </section>
     </OrderConfirmedContainer>
-  )
+  );
 }
