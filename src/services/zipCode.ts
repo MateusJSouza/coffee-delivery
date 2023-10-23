@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const zipCodeAPI = axios.create({
-  baseURL: "http://viacep.com.br/ws"
+  baseURL: "https://viacep.com.br/ws"
 })
