@@ -1,9 +1,9 @@
-import { BenefitsContainer, IntroContainer, IntroContent, IntroTitle } from "./styles";
-import introImg from '../../../../assets/intro-img.png';
-import { RegularText } from "../../../../components/Typograph";
-import { InfoWithIcon } from "../../../../components/InfoWithIcon";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { useTheme } from "styled-components";
+import introImg from '../../../../assets/intro-img.png';
+import { InfoWithIcon } from "../../../../components/InfoWithIcon";
+import { RegularText } from "../../../../components/Typograph";
+import { BenefitsContainer, IntroContainer, IntroContent, IntroTitle } from "./styles";
 
 export function Intro() {
   const { colors } = useTheme()
@@ -17,7 +17,7 @@ export function Intro() {
               Encontre o café perfeito para qualquer hora do dia
             </IntroTitle>
             <RegularText size="l" color="subtitle" as="h3">
-              Com o Coffe Delivery você recebe seu café onde estiver, a {'\n'} qualquer hora
+              Com o Coffee Delivery você recebe seu café onde estiver, a {'\n'} qualquer hora
             </RegularText>
           </section>
 
