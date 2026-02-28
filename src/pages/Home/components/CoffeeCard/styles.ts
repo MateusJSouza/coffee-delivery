@@ -75,7 +75,9 @@ export const CardFooter = styled.div`
 
 export const AddCartWrapper = styled.div`
   width: 7.5rem;
-  
+  display: flex;
+  align-items: center;
+
   > button {
     width: 2.735rem;
     height: 2.735rem;

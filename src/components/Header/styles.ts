@@ -17,6 +17,11 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 1rem 0;
+  }
 `;
 
 export const HeaderButtonsContainer = styled.div`
@@ -50,7 +55,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     top: calc(-1.25rem / 2); // altura e largura divido por 2
     right: calc(-1.25rem / 2);
     color: ${({ theme }) => theme.colors["base-white"]};
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,4 +81,9 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
         color: ${({ theme }) => theme.colors[`brand-${variant}`]};
       }
     `}
+
+  @media (max-width: 480px) {
+    font-size: 0.7rem;
+    padding: 0 0.35rem;
+  }
 `;

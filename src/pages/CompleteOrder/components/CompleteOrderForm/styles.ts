@@ -6,6 +6,10 @@ export const CompleteOrderFormContainer = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   width: 40rem;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const FormSectionContainer = styled(SectionBaseStyle)`
@@ -34,6 +38,33 @@ export const AddressFormContainer = styled.div`
   .complement {
     grid-column: span 2; // Ele irá ocupar 2 colunas
   }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+
+    .cep {
+      grid-column: span 2;
+      max-width: 100%;
+    }
+
+    .street {
+      grid-column: span 2;
+    }
+
+    .complement {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+
+    .cep,
+    .street,
+    .complement {
+      grid-column: span 1;
+    }
+  }
 `;
 
 export const PaymentMethodOptionsContainer = styled.div`
@@ -44,5 +75,13 @@ export const PaymentMethodOptionsContainer = styled.div`
   > p {
     grid-column: span 3;
     color: ${({ theme }) => theme.colors["base-error"]};
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+
+    > p {
+      grid-column: span 1;
+    }
   }
 `;
