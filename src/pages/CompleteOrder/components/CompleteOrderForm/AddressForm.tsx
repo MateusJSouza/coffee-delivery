@@ -33,7 +33,10 @@ export function AddressForm() {
     }
   }
 
+  const { onBlur: onCepBlur, ...cepRegister } = register('cep');
+
   function handleCepBlur(event: React.FocusEvent<HTMLInputElement>) {
+    onCepBlur(event);
     const { value } = event.target;
     const cepRegex = /^\d{5}-?\d{3}$/;
 
@@ -46,9 +49,11 @@ export function AddressForm() {
     <AddressFormContainer>
       <Input
         placeholder="CEP"
-        type="number"
+        type="text"
+        inputMode="numeric"
+        maxLength={9}
         className="cep"
-        {...register('cep')}
+        {...cepRegister}
         error={errors.cep?.message}
         onBlur={handleCepBlur}
       />
