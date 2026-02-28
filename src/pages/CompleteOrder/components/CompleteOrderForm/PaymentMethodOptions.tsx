@@ -1,4 +1,4 @@
-import { Bank, CreditCard, Money } from "phosphor-react";
+import { Bank, CreditCard, Money } from "@phosphor-icons/react";
 import { useFormContext } from "react-hook-form";
 import { RegularText } from "../../../../components/Typograph";
 import { PaymentMethodInput } from "../PaymentMethodInput";
