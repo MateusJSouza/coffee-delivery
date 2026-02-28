@@ -1,4 +1,4 @@
-import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
 import { useTheme } from "styled-components";
 import introImg from '../../../../assets/intro-img.png';
 import { InfoWithIcon } from "../../../../components/InfoWithIcon";

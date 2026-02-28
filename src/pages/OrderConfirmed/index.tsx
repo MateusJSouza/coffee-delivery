@@ -1,4 +1,4 @@
-import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
+import { Clock, CurrencyDollar, MapPin } from "@phosphor-icons/react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";

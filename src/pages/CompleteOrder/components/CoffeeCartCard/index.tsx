@@ -1,4 +1,4 @@
-import { Trash } from "phosphor-react";
+import { Trash } from "@phosphor-icons/react";
 
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { RegularText } from "../../../../components/Typograph";

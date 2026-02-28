@@ -1,4 +1,4 @@
-import { CurrencyDollar, MapPinLine } from "phosphor-react";
+import { CurrencyDollar, MapPinLine } from "@phosphor-icons/react";
 import { useTheme } from "styled-components";
 import { TitleText } from "../../../../components/Typograph";
 import { SectionTitle } from "../SectionTitle";

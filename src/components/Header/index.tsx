@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { MapPin, ShoppingCart } from 'phosphor-react';
+import { MapPin, ShoppingCart } from '@phosphor-icons/react';
 
 import coffeLogoImg from '../../assets/coffee-delivery-logo.svg'
 import { HeaderButton, HeaderButtonsContainer, HeaderContainer } from './styles'

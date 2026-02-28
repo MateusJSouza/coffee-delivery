@@ -2,7 +2,7 @@ import { AddCartWrapper, CardFooter, CoffeeCardContainer, Description, Name, Tag
 import coffeeImg from '../../../../../public/coffes/americano.png'
 import { RegularText, TitleText } from "../../../../components/Typograph";
 import { QuantityInput } from "../../../../components/QuantityInput";
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "@phosphor-icons/react";
 import { formatMoney } from "../../../../utils/formatMoney";
 import { useCart } from "../../../../hooks/useCart";
 import { useState } from "react";
